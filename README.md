@@ -1,4 +1,5 @@
 # grmot - strong ground motion simulation library
+![img](./images/grmot_logo.png)
 ## General description
 grmot generates simulated seismographs (display, velocity, acceleration) using the 3D discrete wavenumber
 representation method.
@@ -41,7 +42,7 @@ We create a number of subfaults.
 ![img](./images/rupture.png)
 
 
-## Examples
+## Using grmot
 
 
 ## License
