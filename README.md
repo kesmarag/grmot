@@ -1,4 +1,8 @@
 # grmot - strong ground motion simulation library
+## General description
+grmot generates simulated seismographs (display, velocity, acceleration) using the 3D discrete wavenumber
+representation method.
+This library has been written in the Rust programming language and it provides a python interface.
 
 ## Installation
 ### python 3.6
@@ -37,7 +41,7 @@ We create a number of subfaults.
 ![img](./images/rupture.png)
 
 
-## A Toy-Example
+## Examples
 
 
 ## License
