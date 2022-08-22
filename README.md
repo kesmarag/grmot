@@ -1,12 +1,22 @@
-
-
-# grmot - An implementation of the discrete wavenumber method
-
+# grmot - strong ground motion simulation library
 
 ## Installation
+### python 3.6
+pip install https://github.com/kesmarag/grmot/blob/main/target/wheels/grmot-0.9.0-cp36-cp36-manylinux_2_5_x86_64.manylinux1_x86_64.whl
 
+### python 3.7
+pip install https://github.com/kesmarag/grmot/blob/main/target/wheels/grmot-0.9.0-cp37-cp37-manylinux_2_5_x86_64.manylinux1_x86_64.whl
 
-## Definition of reference fault
+### python 3.8
+pip install https://github.com/kesmarag/grmot/blob/main/target/wheels/grmot-0.9.0-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.whl
+
+### python 3.9
+pip install https://github.com/kesmarag/grmot/blob/main/target/wheels/grmot-0.9.0-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.whl
+
+### python 3.10
+pip install https://github.com/kesmarag/grmot/blob/main/target/wheels/grmot-0.9.0-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.whl
+
+## Definition of the reference fault
 
 First, we create a reference fault. The following parameters determine the fault.
 
