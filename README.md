@@ -1,5 +1,6 @@
 # GRMOT - strong GRound MOTion simulations
 ![img](./images/grmot_logo.png)
+
 Warning : the documentation of the library is still under preparation.
 When using this code, please cite the following arxiv manuscript
 - manuscript link is to be added
