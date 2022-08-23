@@ -48,7 +48,7 @@ We create a number of subfaults.
 ![img](./images/rupture.png)
 
 
-## Using grmot
+## Using GRMOT
 
 
 ## License
