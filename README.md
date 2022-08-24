@@ -30,9 +30,10 @@ pip install https://github.com/kesmarag/grmot/blob/main/target/wheels/grmot-0.9.
 pip install https://github.com/kesmarag/grmot/blob/main/target/wheels/grmot-0.9.0-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.whl
 
 ## Using GRMOT
-First, we have to create a reference sub-plane. The following parameters determine this sub-plane
-- The top center point of the fault (north (\(x_0\) in km), east (\(y_0\) in km), depth (\(z_0\) in km)) with respect to a general reference point.
-- The dip and strike angles.
+First, we create a reference sub-plane. The following parameters determine this sub-plane
+
+- The top centre point of the fault (north ((x_0) in km), east ((y_0) in km), and depth ((z_0) in km)) with respect to a general reference point.
+- The dip, strike and rake angles.
 
 ![img](./images/img1_grmot.png)
 
@@ -41,7 +42,27 @@ We then create a number of subfaults (see the rectangle ABCD) providing the foll
 -   Center of the subfault relative to the reference fault point (in km).
 -   Length and width of the subfault (km).
 -   Rupture velocity and the orientation of the rupture front.
--   A piece-wise linear rupture time function.
+-   A piecewise linear rupture time function.
+
+```python
+from grmot import Fault
+
+medium = ((2., 5.7*0.5, 3.2*0.5, 0.03),(2.8, 5.7, 3.2, 0.0),) 
+loc = (0.0,0.0,1.0) # (x_fault,y_fault,z_fault)
+angles = (55*np.pi/180., 195*np.pi/180., -90.*np.pi/180.) # (dip,strike,rake)
+fpars = (1/8, 5.0) # (df [Hz], f_max [Hz])
+conf = (400, 400, 80, 80, 1.0) # (nx_max, ny_max, Lx, Ly)
+fault = Fault(angles,loc,fpars,medium,conf)
+
+source = [((1.0, 1.0, 0.0, 0.0, 0.0, 0.0),
+          [(0.0, 0.0), (0.1, 1.0)])]
+
+receivers = [(0.0,10.0)]
+
+dn,de,dv,vn,ve,vv,an,ae,av = fault.simulate(source, receivers, 2048)
+
+```
+
 
 ![img](./images/rupture.png)
 ## License
