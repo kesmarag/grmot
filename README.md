@@ -44,8 +44,12 @@ We then create a number of subfaults (see the rectangle ABCD) providing the foll
 -   Rupture velocity and the orientation of the rupture front.
 -   A piecewise linear rupture time function.
 
+![img](./images/rupture.png)
+
 ```python
 from grmot import Fault
+import numpy as np
+import matplotlib.pyplot as plt
 
 medium = ((2., 5.7*0.5, 3.2*0.5, 0.03),(2.8, 5.7, 3.2, 0.0),) 
 loc = (0.0,0.0,1.0) # (x_fault,y_fault,z_fault)
@@ -54,17 +58,17 @@ fpars = (1/8, 5.0) # (df [Hz], f_max [Hz])
 conf = (400, 400, 80, 80, 1.0) # (nx_max, ny_max, Lx, Ly)
 fault = Fault(angles,loc,fpars,medium,conf)
 
-source = [((1.0, 1.0, 0.0, 0.0, 0.0, 0.0),
+subfaults = [((1.0, 1.0, 0.0, 0.0, 0.0, 0.0),
           [(0.0, 0.0), (0.1, 1.0)])]
 
-receivers = [(0.0,10.0)]
+receivers = [(0.0,10.0)] 
 
-dn,de,dv,vn,ve,vv,an,ae,av = fault.simulate(source, receivers, 2048)
+dn,de,dv,vn,ve,vv,an,ae,av = fault.simulate(subfaults, receivers, 2048)
 
 ```
 
 
-![img](./images/rupture.png)
+
 ## License
 GRMOT is distributed as free software (GPL-v3) it the hope that it will useful, but without any warranty.
 
