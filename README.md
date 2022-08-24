@@ -58,15 +58,26 @@ fpars = (1/8, 5.0) # (df [Hz], f_max [Hz])
 conf = (400, 400, 80, 80, 1.0) # (nx_max, ny_max, Lx, Ly)
 fault = Fault(angles,loc,fpars,medium,conf)
 
-subfaults = [((1.0, 1.0, 0.0, 0.0, 0.0, 0.0),
-          [(0.0, 0.0), (0.1, 1.0)])]
+# list of subfaults
+subfaults = [((1.0, 1.0, 0.0, 0.0, 0.0, 0.0), # (length across the strike, length across the dip, ξ, η, v_r, θ)
+          [(0.0, 0.0), (0.1, 1.0)])] # list of rupture points (time, slip (in m))
 
-receivers = [(0.0,10.0)] 
+# list of receivers
+receivers = [(0.0,10.0)] # (east,west) in km
 
-dn,de,dv,vn,ve,vv,an,ae,av = fault.simulate(subfaults, receivers, 2048)
+n = 2048 # number of samples
+dn,de,dv,vn,ve,vv,an,ae,av = fault.simulate(subfaults, receivers, n)
 
+plt.figure(figsize=(10,4))
+t = np.linspace(0,8,2048)
+plt.grid()
+plt.plot(t,dv[0])
+plt.ylabel('vertical displacement [m]')
+plt.xlabel('time [s]')
+plt.show()
 ```
 
+![img](./images/img2_grmot.png)
 
 
 ## License
