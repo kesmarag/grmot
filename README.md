@@ -29,30 +29,21 @@ pip install https://github.com/kesmarag/grmot/blob/main/target/wheels/grmot-0.9.
 ### python 3.10
 pip install https://github.com/kesmarag/grmot/blob/main/target/wheels/grmot-0.9.0-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.whl
 
-## Definition of the reference fault
-
-First, we create a reference fault. The following parameters determine the fault.
-
--   The top center point of the fault (north (km), east (km), depth (km)).
--   The dip and strike angles.
-
-
-## Definition of subfaults and description of the rupture
-
-We create a number of subfaults.
-
--   Center of the subfault relative to the reference fault top center (km).
--   Length and width of the subfault (km).
--   Rupture velocity and the orientation of the rupture front.
--   Nucleation time (seconds).
--   Rupture time function
-
-![img](./images/rupture.png)
-
-
 ## Using GRMOT
+First, we have to create a reference sub-plane. The following parameters determine this sub-plane
+- The top center point of the fault (north (\(x_0\) in km), east (\(y_0\) in km), depth (\(z_0\) in km)) with respect to a general reference point.
+- The dip and strike angles.
+
 ![img](./images/img1_grmot.png)
 
+We then create a number of subfaults (see the rectangle ABCD) providing the following.
+
+-   Center of the subfault relative to the reference fault point (in km).
+-   Length and width of the subfault (km).
+-   Rupture velocity and the orientation of the rupture front.
+-   A piece-wise linear rupture time function.
+
+![img](./images/rupture.png)
 ## License
 GRMOT is distributed as free software (GPL-v3) it the hope that it will useful, but without any warranty.
 
