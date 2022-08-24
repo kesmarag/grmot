@@ -1,0 +1,2 @@
+cargo:rustc-env=TYPENUM_BUILD_CONSTS=/home/kesmarag/Git/grmot/target/debug/build/typenum-8e0f589efde67170/out/consts.rs
+cargo:rustc-env=TYPENUM_BUILD_OP=/home/kesmarag/Git/grmot/target/debug/build/typenum-8e0f589efde67170/out/op.rs

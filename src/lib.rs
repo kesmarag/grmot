@@ -34,7 +34,6 @@ const I: num::complex::Complex<f64> = num::complex::Complex::new(0.0, 1.0);
 pub const C1: num::complex::Complex<f64> = num::complex::Complex::new(1.0, 0.0);
 const C0: num::complex::Complex<f64> = num::complex::Complex::new(0.0, 0.0);
 const CPI: num::complex::Complex<f64> = num::complex::Complex::new(PI, 0.0);
-
 type c64 = num::complex::Complex<f64>;
 
 fn cmat_create(dip: f64, strike: f64, rupt: f64) -> [[c64; 3]; 3] {
