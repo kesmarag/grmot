@@ -110,7 +110,10 @@ plt.show()
 
 
 ## License
-GRMOT is distributed as free software (GPL-v3) it the hope that it will useful, but without any warranty.
+GRMOT is distributed as free software (GPL-v3) in the hope that it will useful, but without any warranty.
+
+## Acknowledgements
+I would like to acknowledge Professor Apostolos Papageorgiou for his guidance and valuable advice. 
 
 ## References
 
