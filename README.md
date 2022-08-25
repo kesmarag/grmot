@@ -46,7 +46,34 @@ We then create a number of subfaults (see the rectangle ABCD) providing the foll
 
 ![img](./images/rupture.png)
 
+The library provides three environmental setups as it is shown in the following image. In parenteses given the density, velocities of p- and s-waves and thickness for each medium.
 ![img](./images/img3_grmot.png)
+
+I. A halfspace
+
+Create a python tupple as follows:
+```python
+medium = ((rho_1, alpha_1, beta_1, 0)) # with 0 we mean halfspace (infinity thinkness)
+```
+
+
+II. A layer over a halfspace
+
+```python
+medium = ((rho_1, alpha_1, beta_1, h_1),
+          (rho_2, alpha_2, beta_2, 0)) 
+```
+
+III. Two layers over a halfspace
+
+
+```python
+medium = ((rho_1, alpha_1, beta_1, h_1),
+          (rho_2, alpha_2, beta_2, h_2),
+          (rho_3, alpha_3, beta_3, 0)) 
+```
+
+Following a simple but full working test case
 
 ```python
 from grmot import Fault
