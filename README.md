@@ -46,6 +46,8 @@ We then create a number of subfaults (see the rectangle ABCD) providing the foll
 
 ![img](./images/rupture.png)
 
+![img](./images/img3_grmot.png)
+
 ```python
 from grmot import Fault
 import numpy as np
