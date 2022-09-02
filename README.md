@@ -15,10 +15,10 @@ The library's core has been written in the Rust programming language and provide
 The library supports the GNU/Linux operating system.
 
 ### python 3.6
-pip install https://github.com/kesmarag/grmot/blob/main/target/wheels/grmot-0.9.0-cp36-cp36-manylinux_2_5_x86_64.manylinux1_x86_64.whl
+pip install https://github.com/kesmarag/grmot/blob/main/target/wheels/grmot-0.9.0-cp36-cp36m-manylinux_2_5_x86_64.manylinux1_x86_64.whl
 
 ### python 3.7
-pip install https://github.com/kesmarag/grmot/blob/main/target/wheels/grmot-0.9.0-cp37-cp37-manylinux_2_5_x86_64.manylinux1_x86_64.whl
+pip install https://github.com/kesmarag/grmot/blob/main/target/wheels/grmot-0.9.0-cp37-cp37m-manylinux_2_5_x86_64.manylinux1_x86_64.whl
 
 ### python 3.8
 pip install https://github.com/kesmarag/grmot/blob/main/target/wheels/grmot-0.9.0-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.whl
