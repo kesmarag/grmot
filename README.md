@@ -88,7 +88,7 @@ conf = (400, 400, 80, 80, 1.0) # (nx_max, ny_max, Lx, Ly)
 fault = Fault(angles,loc,fpars,medium,conf)
 
 # list of subfaults
-subfaults = [((1.0, 1.0, 0.0, 0.0, 0.0, 0.0), # (length across the strike, length across the dip, ξ, η, v_r, θ)
+subfaults = [((1.0, 1.0, 0.0, 0.0, 2.0, 0.0), # (length across the strike, length across the dip, ξ, η, v_r, θ)
           [(0.0, 0.0), (0.1, 1.0)])] # list of rupture points (time, slip (in m))
 
 # list of receivers
@@ -107,6 +107,10 @@ plt.show()
 ```
 
 ![img](./images/img2_grmot.png)
+
+The library contains several help functions that are not yet documented. Please look at the source code that includes these functions. 
+
+https://github.com/kesmarag/grmot/blob/main/grmot/utils.py
 
 
 ## License
