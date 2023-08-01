@@ -8,7 +8,7 @@
    version="1.1"
    id="svg5"
    sodipodi:docname="img3_grmot.svg"
-   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    inkscape:export-filename="img3_grmot.png"
    inkscape:export-xdpi="150"
    inkscape:export-ydpi="150"
@@ -28,8 +28,8 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="1.4271465"
-     inkscape:cx="169.56914"
-     inkscape:cy="-9.4594356"
+     inkscape:cx="170.62019"
+     inkscape:cy="-9.8097848"
      inkscape:window-width="1920"
      inkscape:window-height="1011"
      inkscape:window-x="0"
@@ -556,6 +556,13 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(-7.01582, -5.20751)">
+    <rect
+       style="fill:#ffffff;stroke:#000000;stroke-width:0.3"
+       id="rect790"
+       width="140.93581"
+       height="40.032631"
+       x="4.5999141"
+       y="2.0051315" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#Arrow1);marker-end:url(#marker1182)"
        d="M 7.9031117,33.27483 V 6.0948032 H 42.214986"
