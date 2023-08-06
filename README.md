@@ -35,7 +35,7 @@ First, we create a reference sub-plane. The following parameters determine this 
 - The top centre point of the fault (north ((x_0) in km), east ((y_0) in km), and depth ((z_0) in km)) with respect to a general reference point.
 - The dip, strike and rake angles.
 
-![img](./images/img1_grmot.png)
+![img](./images/img1_grmot.jpg)
 
 We then create a number of subfaults (see the rectangle ABCD) providing the following.
 
@@ -44,7 +44,7 @@ We then create a number of subfaults (see the rectangle ABCD) providing the foll
 -   Rupture velocity and the orientation of the rupture front.
 -   A piecewise linear rupture time function.
 
-![img](./images/rupture.png)
+![img](./images/rupture.jpg)
 
 The library provides three environmental setups as it is shown in the following image. In parenteses given the density, velocities of p- and s-waves and thickness for each medium.
 ![img](./images/img3_grmot.png)
