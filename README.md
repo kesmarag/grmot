@@ -3,9 +3,6 @@
 
 Warning : the documentation of the library is still under preparation.
 
-When using this code, please cite the following arxiv manuscript
-- manuscript link is to be added
-
 ## General description
 GRMOT generates simulated seismograms (displacement, velocity, acceleration) using the 3D discrete wavenumber
 representation method. The code runs in parallel.
@@ -73,14 +70,14 @@ medium = ((rho_1, alpha_1, beta_1, h_1),
           (rho_3, alpha_3, beta_3, 0)) 
 ```
 
-Following a simple but full working test case
+Following a simple test case
 
 ```python
 from grmot import Fault
 import numpy as np
 import matplotlib.pyplot as plt
 
-medium = ((2., 5.7*0.5, 3.2*0.5, 0.03),(2.8, 5.7, 3.2, 0.0),) 
+medium = ((2., 2.85, 1.6, 0.03),(2.8, 5.7, 3.2, 0.0),) 
 loc = (0.0,0.0,1.0) # (x_fault,y_fault,z_fault)
 angles = (55*np.pi/180., 195*np.pi/180., -90.*np.pi/180.) # (dip,strike,rake)
 fpars = (1/8, 5.0) # (df [Hz], f_max [Hz])
@@ -89,7 +86,7 @@ fault = Fault(angles,loc,fpars,medium,conf)
 
 # list of subfaults
 subfaults = [((1.0, 1.0, 0.0, 0.0, 2.0, 0.0), # (length across the strike, length across the dip, ξ, η, v_r, θ)
-          [(0.0, 0.0), (0.1, 1.0)])] # list of rupture points (time, slip (in m))
+          [(0.0, 0.0), (0.1, 1.0)])] # list that controls the rupture (time, slip (in m))
 
 # list of receivers
 receivers = [(0.0,10.0)] # (east,west) in km
