@@ -92,7 +92,7 @@ subfaults = [((1.0, 1.0, 0.0, 0.0, 2.0, 0.0), # (length across the strike, lengt
 receivers = [(0.0,10.0)] # (east,west) in km
 
 n = 2048 # number of samples
-dn,de,dv,vn,ve,vv,an,ae,av = fault.simulate(subfaults, receivers, n)
+dn,de,dv,vn,ve,vv,an,ae,av = fault.simulate(subfaults, receivers, n) # the first letter (d,v,a) stands for displacement, velocity, acceleration, the second letter stands for north, east, vertical
 
 plt.figure(figsize=(10,4))
 t = np.linspace(0,8,2048)
