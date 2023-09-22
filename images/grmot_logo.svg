@@ -28,7 +28,7 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="1.2930343"
-     inkscape:cx="155.06162"
+     inkscape:cx="154.67494"
      inkscape:cy="20.494429"
      inkscape:window-width="1920"
      inkscape:window-height="1011"
@@ -52,7 +52,7 @@
        y="-50.3325" />
     <g
        id="g1131"
-       transform="matrix(1.6246398,0,0,1.6246398,309.97006,35.353721)"
+       transform="matrix(1.6246398,0,0,1.6246398,308.91172,34.295387)"
        style="stroke:#b24e8d;stroke-width:1.23104;stroke-dasharray:none">
       <path
          style="fill:none;stroke:#b24e8d;stroke-width:1.23104;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
@@ -66,7 +66,7 @@
     </g>
     <g
        id="g1131-3"
-       transform="matrix(1.6246398,0,0,1.6246398,291.24119,-0.49387141)"
+       transform="matrix(1.6246398,0,0,1.6246398,290.71202,-0.49387141)"
        style="stroke:#b24e8d;stroke-width:1.23104;stroke-dasharray:none">
       <path
          style="fill:none;stroke:#b24e8d;stroke-width:1.23104;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
@@ -76,39 +76,39 @@
     <text
        xml:space="preserve"
        style="font-size:22.5778px;line-height:1.25;font-family:sans-serif;fill:#e9e9f4;stroke:none;stroke-width:0.264583"
-       x="-484.56866"
+       x="-485.09784"
        y="-18.582867"
        id="text236"><tspan
          sodipodi:role="line"
          id="tspan234"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'IBM Plex Mono';-inkscape-font-specification:'IBM Plex Mono';fill:#e9e9f4;stroke:none;stroke-width:0.264583"
-         x="-484.56866"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'IBM Plex Sans';-inkscape-font-specification:'IBM Plex Sans';fill:#e9e9f4;stroke:none;stroke-width:0.264583"
+         x="-485.09784"
          y="-18.582867"><tspan
-           style="fill:#1a5fb4"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'IBM Plex Sans';-inkscape-font-specification:'IBM Plex Sans';fill:#1a5fb4"
            id="tspan1084">Gr</tspan><tspan
-           style="fill:#63452c"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'IBM Plex Sans';-inkscape-font-specification:'IBM Plex Sans';fill:#63452c"
            id="tspan1292">Mot</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-size:4.23332px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:center;text-anchor:middle;fill:#99c1f1;stroke-width:2.4;stroke-dasharray:none"
-       x="-454.43036"
-       y="-14.117602"
+       x="-467.37592"
+       y="-14.620954"
        id="text1310"><tspan
          sodipodi:role="line"
          id="tspan1308"
          style="fill:#1a5fb4;stroke-width:2.4"
-         x="-454.43036"
-         y="-14.117602">ound</tspan></text>
+         x="-467.37592"
+         y="-14.620954">ound</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:4.23332px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:center;text-anchor:middle;fill:#cdab8f;stroke-width:2.4;stroke-dasharray:none"
-       x="-416.45673"
-       y="-14.359221"
+       x="-429.80911"
+       y="-14.669637"
        id="text1314"><tspan
          sodipodi:role="line"
          id="tspan1312"
          style="fill:#865e3c;stroke-width:2.4"
-         x="-416.45673"
-         y="-14.359221">ion</tspan></text>
+         x="-429.80911"
+         y="-14.669637">ion</tspan></text>
   </g>
 </svg>
