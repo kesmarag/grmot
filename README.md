@@ -4,9 +4,9 @@
 Warning : the documentation of the library is still under preparation.
 
 ## General description
-GRMOT generates simulated seismograms (displacement, velocity, acceleration) using the 3D discrete wavenumber
-representation method. The code runs in parallel.
-The library's core has been written in the Rust programming language and provides a convenient python user interface.
+GRMOT generates simulated seismograms (displacement, velocity, acceleration)
+using the 3D discrete wavenumber representation method. The code runs in parallel. 
+The library's core is written in the Rust programming language and provides a convenient Python user interface.
 
 ## Installation
 The library supports the GNU/Linux operating system.
@@ -50,7 +50,7 @@ I. A halfspace
 
 Create a python tupple as follows:
 ```python
-medium = ((rho_1, alpha_1, beta_1, 0)) # with 0 we mean halfspace (infinity thinkness)
+medium = ((rho_1, alpha_1, beta_1, 0),) # with 0 we mean halfspace (infinite thinkness)
 ```
 
 
@@ -58,7 +58,7 @@ II. A layer over a halfspace
 
 ```python
 medium = ((rho_1, alpha_1, beta_1, h_1),
-          (rho_2, alpha_2, beta_2, 0)) 
+          (rho_2, alpha_2, beta_2, 0),) 
 ```
 
 III. Two layers over a halfspace
@@ -67,7 +67,7 @@ III. Two layers over a halfspace
 ```python
 medium = ((rho_1, alpha_1, beta_1, h_1),
           (rho_2, alpha_2, beta_2, h_2),
-          (rho_3, alpha_3, beta_3, 0)) 
+          (rho_3, alpha_3, beta_3, 0),) 
 ```
 
 Following a simple test case
@@ -105,7 +105,7 @@ plt.show()
 
 ![img](./images/img2_grmot.png)
 
-The library contains several help functions that are not yet documented. Please look at the source code that includes these functions. 
+The library contains several undocumented help functions. Please look at the source code that includes these functions. 
 
 https://github.com/kesmarag/grmot/blob/main/grmot/utils.py
 
@@ -116,5 +116,4 @@ GRMOT is distributed as free software (GPL-v3) in the hope that it will useful, 
 ## Acknowledgements
 I would like to acknowledge Professor Apostolos Papageorgiou for his guidance and valuable advice. 
 
-## References
 
