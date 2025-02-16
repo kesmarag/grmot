@@ -105,55 +105,94 @@ plt.show()
 
 ![img](./images/img2_grmot.png)
 
-Here we are presenting the approx_elliptical_crack function.
+# Documentation: Approximation of an Elliptical Crack in Earthquake Simulation
 
-# **Function: `approx_elliptical_crack`**
+## Overview
+This function `approx_elliptical_crack` approximates an elliptical rupture on a fault by considering a set of rectangular sub-faults. The rupture nucleates at an internal point of an elliptical crack and propagates in a self-similar manner. The instantaneous elliptical rupture front moves toward the crack barrier at a constant velocity.
 
-## **Purpose**
-This function approximates an elliptical crack rupture by discretizing it into rectangular sub-faults. It simulates the rupture process by tracking the evolution of the rupture front, considering a realistic kinematic model and directivity effects.
+This kinematic model was initially introduced by Burridge and Willis and is further refined by approximating the rupture with rectangular sub-faults.
 
-## **Parameters**
-The function accepts a single argument, `crack_params`, which is a tuple containing the following elements:
-
-1. **L** (*float*) – Length of the fault.
-2. **W** (*float*) – Width of the fault.
-3. **dl** (*float*) – Grid spacing (discretization step).
-4. **D1** (*float*) – Semi-major axis of the elliptical rupture front.
-5. **D2** (*float*) – Semi-minor axis of the elliptical rupture front.
-6. **xi** (*float*) – x-coordinate of the nucleation point.
-7. **et** (*float*) – y-coordinate of the nucleation point.
-8. **K** (*float*) – Scaling coefficient for slip computation.
-9. **dtm** (*float*) – Delay time for rupture initiation.
-10. **nx** (*int*) – x-component of the rupture propagation direction.
-11. **ny** (*int*) – y-component of the rupture propagation direction.
-12. **vrt** (*float*) – Rupture velocity parameter.
-13. **code** (*string*) – Identifier for different rupture scenarios.
-
-## **Methodology**
-- The function constructs a 2D grid over the fault plane.
-- It computes the rupture velocity (`vr`) at each point, taking into account the elliptical shape and directivity effects.
-- The rupture front moves with velocity components (`vx`, `vy`) proportional to the aspect ratio of the ellipse.
-- Each sub-fault's rupture time is determined by solving kinematic equations.
-- The function calculates the slip distribution, rupture velocity field, and rupture front orientation (`theta0`).
-- It identifies inconsistencies in `theta0` values and corrects them.
-- The seismic moment of each sub-fault is computed and accumulated.
-
-## **Returns**
-The function returns a tuple with the following elements:
-
-1. **source_i** (*list of tuples*) – Each tuple contains:
-   - `(dl, dl, x, y, dist_nucl, theta0)`: Sub-fault properties.
-   - `[(time, slip)]`: Slip evolution at different times.
-2. **m0it** (*float*) – Total seismic moment.
-3. **maxslip** (*2D array*) – Maximum slip at each sub-fault.
-4. **ruptvel** (*2D array*) – Rupture velocity field.
-5. **theta0** (*2D array*) – Orientation angles of the rupture front.
-6. **code** (*string*) – Input identifier for rupture scenario.
-
-## **Usage Example**
+## Function Signature
 ```python
-params = (10.0, 5.0, 0.1, 3.0, 2.0, 0.0, 0.0, 1.0, 0.05, 1, 1, 2.5, 'My_Crack')
-source, seismic_moment, max_slip, rupture_velocity, angles, scenario_code = approx_elliptical_crack(params)
+# L, W, dl, radius_xi, radius_eta, xi, eta, coef, delay, nxi, neta, vr, code  
+def approx_elliptical_crack(crack_params):
+```
+
+## Parameters
+- `L` (float): Length of the fault.
+- `W` (float): Width of the fault.
+- `dl` (float): Grid spacing for discretization.
+- `radius_xi` (float): Major axis radius of the elliptical crack.
+- `radius_eta` (float): Minor axis radius of the elliptical crack.
+- `xi` (float): X-coordinate of the nucleation point.
+- `eta` (float): Y-coordinate of the nucleation point.
+- `coef` (float): Scaling coefficient.
+- `delay` (float): Initial time delay of rupture.
+- `nxi` (int): X-direction sub-fault index.
+- `neta` (int): Y-direction sub-fault index.
+- `vr` (float): Rupture velocity.
+- `code` (str): Unique identifier for the fault model.
+
+## Returns
+- `source_i` (list): List of rupture event details.
+- `m0it` (float): Total moment release.
+- `maxslip` (numpy array): Maximum slip distribution.
+- `ruptvel` (numpy array): Rupture velocity distribution.
+- `theta0` (numpy array): Initial rupture angle distribution.
+- `code` (str): Fault model identifier.
+
+## Real-World Example: A Hypothetical Samos Earthquake
+To simulate a hypothetical earthquake on the same fault as the 2020 Samos earthquake:
+
+```python
+it = [24.0, 80.0, 0.5, 4., 12., 9., -7., 0.668, 0., -1., 2., 2., 'a_samos_crack']
+source, m0, m, r, t, code = approx_elliptical_crack(it)
+
+lat_fault, lon_fault, z_fault = 37.840-2/111, 26.695+4/88, 1.0
+x_fault, y_fault = latlon_to_km(lat_fault, lon_fault)
+
+loc = (x_fault, y_fault, z_fault)
+
+angles = (50*np.pi/180., 276*np.pi/180., -90.*np.pi/180.)
+fpars = (1/40, 3.2) 
+medium = ((2.4, 3.7, 2.25, 0.5),
+          (2.5, 4.6, 2.7, 0.5),
+          (2.6, 5.4, 3.2, 0.0),)
+
+conf = (300, 300, 250, 250, 1.0)
+
+# Define receivers and simulate ground motion
+receivers_db = {
+    'KARLOVASI_SQUARE': (37.7916, 26.7048)
+}
+
+fault = Fault(angles, loc, fpars, medium, conf)
+
+dir_name = './samos_hyp'
+for receiver_name in receivers_db:
+    receivers = []
+    x_receiver, y_receiver = latlon_to_km(receivers_db[receiver_name][0], receivers_db[receiver_name][1])
+    receivers.append((x_receiver, y_receiver))
+    dn, de, dv, vn, ve, vv, an, ae, av = fault.simulate(source, receivers, 2048)
+    np.savez(dir_name + '/' + receiver_name + '_' + name + '.npz',
+             dn=dn[0],
+             de=de[0],
+             dv=dv[0],
+             vn=vn[0],
+             ve=ve[0],
+             vv=vv[0],
+             an=an[0],
+             ae=ae[0],
+             av=av[0],
+             m0=m0)
+```
+
+This setup models an elliptical rupture similar to the real 2020 Samos earthquake, defining the location, angles, fault parameters, and medium properties for accurate simulation. The simulation results are saved in `.npz` format for further analysis.
+
+
+
+
+
 
 
 
