@@ -105,9 +105,63 @@ plt.show()
 
 ![img](./images/img2_grmot.png)
 
+Here we are presenting the approx_elliptical_crack function.
+
+# **Function: `approx_elliptical_crack`**
+
+## **Purpose**
+This function approximates an elliptical crack rupture by discretizing it into rectangular sub-faults. It simulates the rupture process by tracking the evolution of the rupture front, considering a realistic kinematic model and directivity effects.
+
+## **Parameters**
+The function accepts a single argument, `crack_params`, which is a tuple containing the following elements:
+
+1. **L** (*float*) – Length of the fault.
+2. **W** (*float*) – Width of the fault.
+3. **dl** (*float*) – Grid spacing (discretization step).
+4. **D1** (*float*) – Semi-major axis of the elliptical rupture front.
+5. **D2** (*float*) – Semi-minor axis of the elliptical rupture front.
+6. **xi** (*float*) – x-coordinate of the nucleation point.
+7. **et** (*float*) – y-coordinate of the nucleation point.
+8. **K** (*float*) – Scaling coefficient for slip computation.
+9. **dtm** (*float*) – Delay time for rupture initiation.
+10. **nx** (*int*) – x-component of the rupture propagation direction.
+11. **ny** (*int*) – y-component of the rupture propagation direction.
+12. **vrt** (*float*) – Rupture velocity parameter.
+13. **code** (*string*) – Identifier for different rupture scenarios.
+
+## **Methodology**
+- The function constructs a 2D grid over the fault plane.
+- It computes the rupture velocity (`vr`) at each point, taking into account the elliptical shape and directivity effects.
+- The rupture front moves with velocity components (`vx`, `vy`) proportional to the aspect ratio of the ellipse.
+- Each sub-fault's rupture time is determined by solving kinematic equations.
+- The function calculates the slip distribution, rupture velocity field, and rupture front orientation (`theta0`).
+- It identifies inconsistencies in `theta0` values and corrects them.
+- The seismic moment of each sub-fault is computed and accumulated.
+
+## **Returns**
+The function returns a tuple with the following elements:
+
+1. **source_i** (*list of tuples*) – Each tuple contains:
+   - `(dl, dl, x, y, dist_nucl, theta0)`: Sub-fault properties.
+   - `[(time, slip)]`: Slip evolution at different times.
+2. **m0it** (*float*) – Total seismic moment.
+3. **maxslip** (*2D array*) – Maximum slip at each sub-fault.
+4. **ruptvel** (*2D array*) – Rupture velocity field.
+5. **theta0** (*2D array*) – Orientation angles of the rupture front.
+6. **code** (*string*) – Input identifier for rupture scenario.
+
+## **Usage Example**
+```python
+params = (10.0, 5.0, 0.1, 3.0, 2.0, 0.0, 0.0, 1.0, 0.05, 1, 1, 2.5, 'My_Crack')
+source, seismic_moment, max_slip, rupture_velocity, angles, scenario_code = approx_elliptical_crack(params)
+
+
+
 The library contains several undocumented help functions. Please look at the source code that includes these functions. 
 
 https://github.com/kesmarag/grmot/blob/main/grmot/utils.py
+
+
 
 
 ## License
