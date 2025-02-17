@@ -214,6 +214,7 @@ plt.savefig('simulated.png')
 ```
 
 
+![img](./images/simulated.png)
 
 
 This setup models an elliptical rupture near Samos Island, incorporating location, orientation, fault parameters, and medium properties to ensure an accurate seismic simulation.
