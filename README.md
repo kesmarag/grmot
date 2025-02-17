@@ -110,7 +110,11 @@ plt.show()
 ## Overview
 This function `approx_elliptical_crack` approximates an elliptical rupture on a fault by considering a set of rectangular sub-faults. The rupture nucleates at an internal point of an elliptical crack and propagates in a self-similar manner. The instantaneous elliptical rupture front moves toward the crack barrier at a constant velocity.
 
-This kinematic model was initially introduced by Burridge and Willis and is further refined by approximating the rupture with rectangular sub-faults.
+This elliptical kinematic rupture model was first introduced by Burridge and Willis. Here, we approximate the rupture using rectangular sub-faults.
+
+
+The nucleation point is denoted by the white dot.
+
 
 ## Function Signature
 ```python
@@ -141,14 +145,17 @@ def approx_elliptical_crack(crack_params):
 - `theta0` (numpy array): Initial rupture angle distribution.
 - `code` (str): Fault model identifier.
 
-## Real-World Example: Samos Earthquake 2020 Simulation
-To simulate a hypothetical earthquake on the same fault as the 2020 Samos earthquake:
+## Synthetic Earthquake Simulation Near Samos Island, Greece
+We wish to simulate a hypothetical earthquake on the same fault that ruptured during the 2020 Samos earthquake.
+
+![img](./images/map_samos.png)
 
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
 
-it = [24.0, 80.0, 0.5, 4., 12., 9., -7., 0.668, 0., -1., 2., 2., 'a_samos_crack']
+it = [24.0, 60.0, 0.5, 4, 12,  8,  -7,  0.6,  0, -1,  2, 2.0, 'Crack']
+
 source, m0, m, r, t, code = approx_elliptical_crack(it)
 
 lat_fault, lon_fault, z_fault = 37.840-2/111, 26.695+4/88, 1.0
@@ -191,33 +198,31 @@ t = np.linspace(0,40,2048)
 # Plot results
 plt.figure(figsize=(10, 5))
 plt.subplot(2, 1, 1)
-plt.plot(t, karlovasi['dv'], label='Vertical Displacement (m)')
+plt.plot(t, 100*karlovasi['dv'], label='Vertical Displacement (cm)', color='#3548cf')
 plt.legend()
-plt.grid()
-plt.xlabel('Time (s)')
-plt.ylabel('Displacement (m)')
+plt.ylabel('Displacement (cm)')
 
 plt.subplot(2, 1, 2)
-plt.plot(t, karlovasi['vv'], label='Vertical Velocity (m/s)', color='r')
+plt.plot(t, 100*karlovasi['vv'], label='Vertical Velocity (cm/s)', color='#3548cf')
 plt.legend()
-plt.grid()
 plt.xlabel('Time (s)')
-plt.ylabel('Velocity (m/s)')
+plt.ylabel('Velocity (cm/s)')
 
-plt.suptitle(f'Simulated Earthquake at Karlovasi (Mw = {mw:.2f})')
-plt.show()
+plt.suptitle(f'Simulated Earthquake (Mw = {mw:.2f})')
+plt.savefig('simulated.png')
 
 ```
 
 
-This setup models an elliptical rupture similar to the real 2020 Samos earthquake, defining the location, angles, fault parameters, and medium properties for accurate simulation.
+
+
+This setup models an elliptical rupture near Samos Island, incorporating location, orientation, fault parameters, and medium properties to ensure an accurate seismic simulation.
 
 
 
+## Undocumented Functions 
 
-
-
-The library contains several undocumented help functions. Please look at the source code that includes these functions. 
+The library includes several undocumented functions. Please refer to the source code for details on these functions.
 
 https://github.com/kesmarag/grmot/blob/main/grmot/utils.py
 
