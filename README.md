@@ -141,10 +141,13 @@ def approx_elliptical_crack(crack_params):
 - `theta0` (numpy array): Initial rupture angle distribution.
 - `code` (str): Fault model identifier.
 
-## Real-World Example: A Hypothetical Samos Earthquake
+## Real-World Example: Samos Earthquake 2020 Simulation
 To simulate a hypothetical earthquake on the same fault as the 2020 Samos earthquake:
 
 ```python
+import numpy as np
+import matplotlib.pyplot as plt
+
 it = [24.0, 80.0, 0.5, 4., 12., 9., -7., 0.668, 0., -1., 2., 2., 'a_samos_crack']
 source, m0, m, r, t, code = approx_elliptical_crack(it)
 
@@ -161,35 +164,53 @@ medium = ((2.4, 3.7, 2.25, 0.5),
 
 conf = (300, 300, 250, 250, 1.0)
 
-# Define receivers and simulate ground motion
 receivers_db = {
     'KARLOVASI_SQUARE': (37.7916, 26.7048)
 }
 
-fault = Fault(angles, loc, fpars, medium, conf)
-
 dir_name = './samos_hyp'
 for receiver_name in receivers_db:
-    receivers = []
+    receivers=[]
     x_receiver, y_receiver = latlon_to_km(receivers_db[receiver_name][0], receivers_db[receiver_name][1])
     receivers.append((x_receiver, y_receiver))
-    dn, de, dv, vn, ve, vv, an, ae, av = fault.simulate(source, receivers, 2048)
-    np.savez(dir_name + '/' + receiver_name + '_' + name + '.npz',
-             dn=dn[0],
-             de=de[0],
-             dv=dv[0],
-             vn=vn[0],
-             ve=ve[0],
-             vv=vv[0],
-             an=an[0],
-             ae=ae[0],
-             av=av[0],
-             m0=m0)
+    dn,de,dv,vn,ve,vv,an,ae,av = fault.simulate(source, receivers, 2048)
+    np.savez(dir_name + '/' + receiver_name + '_' + code + '.npz', 
+              dn=dn[0], de=de[0], dv=dv[0], 
+              vn=vn[0], ve=ve[0], vv=vv[0], 
+              an=an[0], ae=ae[0], av=av[0], 
+              m0=m0)
+
+# Load and analyze the simulated data
+karlovasi = np.load('./samos_hyp/KARLOVASI_SQUARE_' + code + '.npz')
+
+# Calculate moment magnitude
+mw = 2 * np.log10(karlovasi['m0'] * 10**7) / 3 - 10.7
+
+t = np.linspace(0,40,2048)
+
+# Plot results
+plt.figure(figsize=(10, 5))
+plt.subplot(2, 1, 1)
+plt.plot(t, karlovasi['dv'], label='Vertical Displacement (m)')
+plt.legend()
+plt.grid()
+plt.xlabel('Time (s)')
+plt.ylabel('Displacement (m)')
+
+plt.subplot(2, 1, 2)
+plt.plot(t, karlovasi['vv'], label='Vertical Velocity (m/s)', color='r')
+plt.legend()
+plt.grid()
+plt.xlabel('Time (s)')
+plt.ylabel('Velocity (m/s)')
+
+plt.suptitle(f'Simulated Earthquake at Karlovasi (Mw = {mw:.2f})')
+plt.show()
+
 ```
 
-This setup models an elliptical rupture similar to the real 2020 Samos earthquake, defining the location, angles, fault parameters, and medium properties for accurate simulation. The simulation results are saved in `.npz` format for further analysis.
 
-
+This setup models an elliptical rupture similar to the real 2020 Samos earthquake, defining the location, angles, fault parameters, and medium properties for accurate simulation.
 
 
 
