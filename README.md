@@ -93,7 +93,7 @@ plt.xlabel('time [s]')
 plt.show()
 ```
 
-![img](./images/waveform.png)
+![img](./images/vertical.png)
 
 ## Approximation of an Elliptical Crack
 
