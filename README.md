@@ -95,7 +95,7 @@ plt.show()
 
 ![img](./images/img2_grmot.png)
 
-# Documentation: Approximation of an Elliptical Crack in Earthquake Simulation
+## Approximation of an Elliptical Crack
 
 ## Overview
 This function `approx_elliptical_crack` approximates an elliptical rupture on a fault by considering a set of rectangular sub-faults. The rupture nucleates at an internal point of an elliptical crack and propagates in a self-similar manner. The instantaneous elliptical rupture front moves toward the crack barrier at a constant velocity.
