@@ -110,7 +110,7 @@ This elliptical kinematic rupture model was first introduced by Burridge and Wil
 ## Function Signature
 ```python
 # L, W, dl, radius_xi, radius_eta, xi, eta, coef, delay, nxi, neta, vr, code  
-def approx_elliptical_crack(crack_params):
+approx_elliptical_crack(crack_params)
 ```
 
 
