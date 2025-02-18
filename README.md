@@ -4,9 +4,6 @@
 Warning : the documentation of the library is still under preparation.
 
 ## General description
-GRMOT generates simulated seismograms (displacement, velocity, acceleration)
-using the 3D discrete wavenumber representation method. The code runs in parallel. 
-The library's core is written in the Rust programming language and provides a convenient Python user interface.
 
 GRMOT generates simulated seismograms, including displacement, velocity, and accelerations, using the 3D discrete wavenumber representation method.
 The code is designed for parallel execution, ensuring efficiency in large-scale simulations.
@@ -218,9 +215,6 @@ plt.savefig('simulated.png')
 
 
 ![img](./images/simulated.png)
-
-
-This setup models an elliptical rupture near Samos Island, incorporating location, orientation, fault parameters, and medium properties to ensure an accurate seismic simulation.
 
 ## Undocumented Functions 
 
