@@ -141,7 +141,7 @@ def approx_elliptical_crack(crack_params):
 - `code` (str): Fault model identifier.
 
 ## Test Case: Synthetic Earthquake Simulation Near Samos Island, Greece
-We wish to simulate a hypothetical earthquake on the same fault that ruptured during the 2020 Samos earthquake.
+We aim to simulate a hypothetical earthquake on the same fault that ruptured during the 2020 Samos earthquake, evaluating its potential impact on Karlovasi main square.
 
 ![img](./images/map_samos.png)
 
@@ -221,7 +221,6 @@ This setup models an elliptical rupture near Samos Island, incorporating locatio
 The library includes several undocumented functions. Please refer to the source code for details on these functions.
 
 https://github.com/kesmarag/grmot/blob/main/grmot/utils.py
-
 
 ## License
 GRMOT is distributed as free software (GPL-v3) in the hope that it will useful, but without any warranty.
