@@ -103,18 +103,12 @@ This function `approx_elliptical_crack` approximates an elliptical rupture on a 
 This elliptical kinematic rupture model was first introduced by Burridge and Willis. Here, we approximate the rupture using rectangular sub-faults.
 
 
-The nucleation point is denoted by the white dot.
-
 
 ## Function Signature
 ```python
 # L, W, dl, radius_xi, radius_eta, xi, eta, coef, delay, nxi, neta, vr, code  
 def approx_elliptical_crack(crack_params):
 ```
-
-
-
-![img](./images/efault.png)
 
 
 ## Parameters
@@ -140,9 +134,16 @@ def approx_elliptical_crack(crack_params):
 - `theta0` (numpy array): Initial rupture angle distribution.
 - `code` (str): Fault model identifier.
 
+The following image illustrates the key parameters of the approx_elliptical_crack function.
+
+![img](./images/efault.png)
+
+The nucleation point is denoted by the white dot.
+
 ## Test Case: Synthetic Earthquake Simulation Near Samos Island, Greece
 We aim to simulate a hypothetical earthquake on the same fault that ruptured during the 2020 Samos earthquake, evaluating its potential impact on Karlovasi main square.
 
+Below is the map of the synthetic rupture, accompanied by the Python code that implements the simulation.
 ![img](./images/map_samos.png)
 
 ```python
