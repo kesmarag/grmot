@@ -123,24 +123,24 @@ def approx_elliptical_crack(crack_params):
 - `dl` (float): Grid spacing for discretization.
 - `radius_xi` (float): Major axis radius of the elliptical crack.
 - `radius_eta` (float): Minor axis radius of the elliptical crack.
-- `xi` (float): X-coordinate of the nucleation point.
-- `eta` (float): Y-coordinate of the nucleation point.
-- `coef` (float): Scaling coefficient.
+- `xi` (float): ξ-coordinate of the center of the elliptical crack.
+- `eta` (float): η-coordinate of the center of the elliptical crack.
+- `coef` (float): Scaling factor.
 - `delay` (float): Initial time delay of rupture.
-- `nxi` (int): X-direction sub-fault index.
-- `neta` (int): Y-direction sub-fault index.
-- `vr` (float): Rupture velocity.
+- `nxi` (float): ξ-direction of the nucleation point.
+- `neta` (float): η-direction of the nucleation point.
+- `vr` (float): Rupture velocity (km/s).
 - `code` (str): Unique identifier for the fault model.
 
 ## Returns
-- `source_i` (list): List of rupture event details.
+- `source_i` (list): List of rupture details.
 - `m0it` (float): Total moment release.
 - `maxslip` (numpy array): Maximum slip distribution.
 - `ruptvel` (numpy array): Rupture velocity distribution.
 - `theta0` (numpy array): Initial rupture angle distribution.
 - `code` (str): Fault model identifier.
 
-## Synthetic Earthquake Simulation Near Samos Island, Greece
+## Test Case: Synthetic Earthquake Simulation Near Samos Island, Greece
 We wish to simulate a hypothetical earthquake on the same fault that ruptured during the 2020 Samos earthquake.
 
 ![img](./images/map_samos.png)
@@ -223,12 +223,9 @@ The library includes several undocumented functions. Please refer to the source 
 https://github.com/kesmarag/grmot/blob/main/grmot/utils.py
 
 
-
-
 ## License
 GRMOT is distributed as free software (GPL-v3) in the hope that it will useful, but without any warranty.
 
 ## Acknowledgements
 I would like to acknowledge Professor Apostolos Papageorgiou for his guidance and valuable advice. 
-
 
