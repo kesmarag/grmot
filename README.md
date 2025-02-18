@@ -119,7 +119,7 @@ def approx_elliptical_crack(crack_params):
 - `W` (float): Width of the fault.
 - `dl` (float): Grid spacing for discretization.
 - `radius_xi` (float): ξ-axis radius of the elliptical crack.
-- `radius_eta` (float): η-Minor axis radius of the elliptical crack.
+- `radius_eta` (float): η-axis radius of the elliptical crack.
 - `xi` (float): ξ-coordinate of the center of the elliptical crack.
 - `eta` (float): η-coordinate of the center of the elliptical crack.
 - `coef` (float): Scaling factor.
