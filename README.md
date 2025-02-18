@@ -93,7 +93,7 @@ plt.xlabel('time [s]')
 plt.show()
 ```
 
-![img](./images/img2_grmot.png)
+![img](./images/waveform.png)
 
 ## Approximation of an Elliptical Crack
 
@@ -148,13 +148,13 @@ it = [24.0, 60.0, 0.5, 4, 12,  8,  -7,  0.6,  0, -1,  2, 2.0, 'Crack']
 
 source, m0, m, r, t, code = approx_elliptical_crack(it)
 
-lat_fault, lon_fault, z_fault = 37.840-2/111, 26.695+4/88, 1.0
+lat_fault, lon_fault, z_fault = 37.822, 26.740, 1.0
 x_fault, y_fault = latlon_to_km(lat_fault, lon_fault)
 
 loc = (x_fault, y_fault, z_fault)
 
 angles = (50*np.pi/180., 276*np.pi/180., -90.*np.pi/180.)
-fpars = (1/40, 3.2) 
+fpars = (1/40, 3.0) 
 medium = ((2.4, 3.7, 2.25, 0.5),
           (2.5, 4.6, 2.7, 0.5),
           (2.6, 5.4, 3.2, 0.0),)
