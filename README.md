@@ -112,6 +112,11 @@ The nucleation point is denoted by the white dot.
 def approx_elliptical_crack(crack_params):
 ```
 
+
+
+![img](./images/efault.png)
+
+
 ## Parameters
 - `L` (float): Length of the fault.
 - `W` (float): Width of the fault.
