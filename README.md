@@ -8,6 +8,11 @@ GRMOT generates simulated seismograms (displacement, velocity, acceleration)
 using the 3D discrete wavenumber representation method. The code runs in parallel. 
 The library's core is written in the Rust programming language and provides a convenient Python user interface.
 
+GRMOT generates simulated seismograms, including displacement, velocity, and accelerations, using the 3D discrete wavenumber representation method.
+The code is designed for parallel execution, ensuring efficiency in large-scale simulations.
+The library’s core is implemented in Rust for high performance,
+while a Python interface provides a user-friendly experience for researchers and engineers.
+
 ## Installation
 
 The GrMot library supports GNU/Linux and requires Python 3.6 or later. To install the appropriate version for your Python environment, run:
@@ -24,17 +29,19 @@ First, we create a reference sub-plane. The following parameters determine this 
 
 ![img](./images/img1_grmot.jpg)
 
-We then create a number of subfaults (see the rectangle ABCD) providing the following.
+Next, we divide the fault into multiple subfaults (see rectangle ABCD) and define their properties as follows:
 
--   Center of the subfault relative to the reference fault point (in km).
--   Length and width of the subfault (km).
--   Rupture velocity and the orientation of the rupture front.
--   A piecewise linear rupture time function.
+- Center coordinates relative to the reference fault point (in km).
+- Dimensions: Length and width of each subfault (km).
+- Rupture characteristics: Rupture velocity and orientation of the rupture front.
+- Rupture timing: A piecewise linear function defining the rupture onset at each subfault.
 
 ![img](./images/rupture.jpg)
 
 The library provides three environmental setups as it is shown in the following image. In parenteses given the density, velocities of p- and s-waves and thickness for each medium.
 ![img](./images/img3_grmot.png)
+
+These parameters are crucial for simulating seismic wave propagation through different layers of the Earth's crust.
 
 I. A halfspace
 
@@ -97,7 +104,6 @@ plt.show()
 
 ## Approximation of an Elliptical Crack
 
-## Overview
 This function `approx_elliptical_crack` approximates an elliptical rupture on a fault by considering a set of rectangular sub-faults. The rupture nucleates at an internal point of an elliptical crack and propagates in a self-similar manner. The instantaneous elliptical rupture front moves toward the crack barrier at a constant velocity.
 
 This elliptical kinematic rupture model was first introduced by Burridge and Willis. Here, we approximate the rupture using rectangular sub-faults.
@@ -147,6 +153,7 @@ Below is the map of the synthetic rupture, accompanied by the Python code that i
 ![img](./images/map_samos.png)
 
 ```python
+from grmot import approx_elliptical_crack, Fault, latlon_to_km
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -214,8 +221,6 @@ plt.savefig('simulated.png')
 
 
 This setup models an elliptical rupture near Samos Island, incorporating location, orientation, fault parameters, and medium properties to ensure an accurate seismic simulation.
-
-
 
 ## Undocumented Functions 
 
