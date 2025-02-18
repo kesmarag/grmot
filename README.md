@@ -9,22 +9,12 @@ using the 3D discrete wavenumber representation method. The code runs in paralle
 The library's core is written in the Rust programming language and provides a convenient Python user interface.
 
 ## Installation
-The library supports the GNU/Linux operating system.
 
-### python 3.6
-pip install https://github.com/kesmarag/grmot/raw/main/target/wheels/grmot-0.9.0-cp36-cp36m-manylinux_2_5_x86_64.manylinux1_x86_64.whl
+The GrMot library supports GNU/Linux and requires Python 3.6 or later. To install the appropriate version for your Python environment, run:
 
-### python 3.7
-pip install https://github.com/kesmarag/grmot/raw/main/target/wheels/grmot-0.9.0-cp37-cp37m-manylinux_2_5_x86_64.manylinux1_x86_64.whl
-
-### python 3.8
-pip install https://github.com/kesmarag/grmot/raw/main/target/wheels/grmot-0.9.0-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.whl
-
-### python 3.9
-pip install https://github.com/kesmarag/grmot/raw/main/target/wheels/grmot-0.9.0-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.whl
-
-### python 3.10
-pip install https://github.com/kesmarag/grmot/raw/main/target/wheels/grmot-0.9.0-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.whl
+```bash
+pip install $(python -c "import sys; version=f'{sys.version_info.major}{sys.version_info.minor}'; print(f'https://github.com/kesmarag/grmot/raw/main/target/wheels/grmot-0.9.0-cp{version}-cp{version}-manylinux_2_5_x86_64.manylinux1_x86_64.whl')")
+```
 
 ## Using GRMOT
 First, we create a reference sub-plane. The following parameters determine this sub-plane
