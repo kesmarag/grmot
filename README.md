@@ -1,8 +1,6 @@
 # GRMOT - strong GRound MOTion simulations
 ![img](./images/grmot_logo.png)
 
-[![DOI](https://zenodo.org/badge/527664867.svg)](https://doi.org/10.5281/zenodo.14900909)
-
 Warning : the documentation of the library is still under preparation.
 
 ## General description
@@ -11,6 +9,23 @@ GRMOT generates simulated seismograms, including displacement, velocity, and acc
 The code is designed for parallel execution, ensuring efficiency in large-scale simulations.
 The library’s core is implemented in Rust for high performance,
 while a Python interface provides a user-friendly experience for researchers and engineers.
+
+## Citation
+[![DOI](https://zenodo.org/badge/527664867.svg)](https://doi.org/10.5281/zenodo.14900909)
+
+If you use this project in your research or work, please cite it as follows:
+
+```bibtex
+@software{Smaragdakis_GrMot_2025,
+author = {Smaragdakis, Costas},
+doi = {https://doi.org/10.5281/zenodo.14900909},
+month = feb,
+title = {{GrMot}},
+url = {https://github.com/kesmarag/grmot},
+version = {v0.9.0},
+year = {2025}
+}
+```
 
 ## Installation
 
