@@ -6,6 +6,7 @@ authors:
     given-names: "Costas"
     orcid: "0000-0001-8839-3715"
     affiliation: "University of the Aegean & FORTH"
-date-released: "2025-02-18"
+date-released: "2025-02-20"
 version: "v0.9.0"
 repository-code: "https://github.com/kesmarag/grmot"
+doi: "https://doi.org/10.5281/zenodo.14900909"

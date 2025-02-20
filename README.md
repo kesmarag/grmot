@@ -1,6 +1,8 @@
 # GRMOT - strong GRound MOTion simulations
 ![img](./images/grmot_logo.png)
 
+[![DOI](https://zenodo.org/badge/527664867.svg)](https://doi.org/10.5281/zenodo.14900909)
+
 Warning : the documentation of the library is still under preparation.
 
 ## General description
