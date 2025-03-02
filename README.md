@@ -29,7 +29,7 @@ year = {2025}
 
 ## Installation
 
-The GrMot library supports GNU/Linux and requires Python 3.6 or later. To install the appropriate version for your Python environment, run:
+The GrMot library supports GNU/Linux and requires Python 3.8 or later. To install the appropriate version for your Python environment, run:
 
 ```bash
 pip install $(python -c "import sys; version=f'{sys.version_info.major}{sys.version_info.minor}'; print(f'https://github.com/kesmarag/grmot/raw/main/target/wheels/grmot-0.9.0-cp{version}-cp{version}-manylinux_2_17_x86_64.manylinux2014_x86_64.whl')")
