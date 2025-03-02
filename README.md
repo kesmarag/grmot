@@ -65,7 +65,10 @@ medium = ((rho_1, alpha_1, beta_1, 0),) # with 0 we mean halfspace (infinite thi
 ```
 
 
-II. A layer over a halfspace
+II. A layer over a halfspace 
+
+Note: There are bugs in this setup, and we are currently working on fixing them.
+For the time being, in the case of two layers, use the third setup (III.) with two identical upper media, each with a thickness of h_1/2.
 
 ```python
 medium = ((rho_1, alpha_1, beta_1, h_1),
