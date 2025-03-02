@@ -84,40 +84,68 @@ medium = ((rho_1, alpha_1, beta_1, h_1),
           (rho_3, alpha_3, beta_3, 0),) 
 ```
 
-Following a simple test case
+Following a test case that implements the final example (Fig. 6) from the paper **Discrete Wave Number Representation of Elastic Wave Fields in Three Space Dimensions**, Journal of Geophysical Research, Vol. 84, No. B7, by Michael Bouchon.
 
 ```python
 from grmot import Fault
 import numpy as np
 import matplotlib.pyplot as plt
 
-medium = ((2., 2.85, 1.6, 0.03),(2.8, 5.7, 3.2, 0.0),) 
-loc = (0.0,0.0,1.0) # (x_fault,y_fault,z_fault)
-angles = (55*np.pi/180., 195*np.pi/180., -90.*np.pi/180.) # (dip,strike,rake)
-fpars = (1/8, 5.0) # (df [Hz], f_max [Hz])
-conf = (400, 400, 80, 80, 1.0) # (nx_max, ny_max, Lx, Ly)
-fault = Fault(angles,loc,fpars,medium,conf)
+x_fault = 5.0
+y_fault = 0.0
+z_fault = 1.0
+x_receiver, y_receiver = 7.0, 1.0
 
-# list of subfaults
-subfaults = [((1.0, 1.0, 0.0, 0.0, 2.0, 0.0), # (length across the strike, length across the dip, ξ, η, v_r, θ)
-          [(0.0, 0.0), (0.1, 1.0)])] # list that controls the rupture (time, slip (in m))
+sources = [((3, 10, 0, 0, 2, 270 * np.pi / 180), [(0, 1.0)])]
 
-# list of receivers
-receivers = [(0.0,10.0)] # (east,west) in km
+angles = (90.0 * np.pi / 180.0, 0.0 * np.pi / 180.0, 180.0 * np.pi / 180.0)
+fpars = (1 / 10, 5)
+N = 1 / fpars[0] * (4 * fpars[1])
+print(N)
 
-n = 2048 # number of samples
-dn,de,dv,vn,ve,vv,an,ae,av = fault.simulate(subfaults, receivers, n) # the first letter (d,v,a) stands for displacement, velocity, acceleration, the second letter stands for north, east, vertical
+medium = ((2.4, 2.5, 1.4, 0.5), (2.4, 2.5, 1.4, 0.5), (2.8, 5.0, 2.8, 0))
 
-plt.figure(figsize=(10,4))
-t = np.linspace(0,8,2048)
-plt.grid()
-plt.plot(t,dv[0])
-plt.ylabel('vertical displacement [m]')
+rvel = 0
+conf = (300, 300, 200.0, 200.0, 1.0)
+loc = (x_fault, y_fault, z_fault)
+fault = Fault(angles, loc, fpars, medium, conf)
+
+receivers = [(x_receiver, y_receiver)]
+
+north, east, vertical, _, _, _, _, _, _ = fault.simulate(sources, receivers, 8192)
+
+t = np.linspace(0, 1 / fpars[0] * 4, 8192)
+
+# Vertical Displacement Plot
+plt.figure(figsize=(10, 3))
+plt.plot(t, vertical[0],'black')
+plt.ylabel('Vertical Displacement [m]')
 plt.xlabel('time [s]')
+plt.title("Vertical Displacement at Receiver")
+plt.show()
+
+# North Displacement Plot
+plt.figure(figsize=(10, 3))
+plt.plot(t, north[0],'black')
+plt.ylabel('North Displacement [m]')
+plt.xlabel('time [s]')
+plt.title("North Displacement at Receiver")
+plt.show()
+
+# East Displacement Plot
+plt.figure(figsize=(10, 3))
+plt.plot(t, east[0],'black')
+plt.ylabel('East Displacement [m]')
+plt.xlabel('time [s]')
+plt.title("East Displacement at Receiver")
 plt.show()
 ```
 
-![img](./images/vertical.png)
+![img](./images/vertical1.png)
+
+![img](./images/north1.png)
+
+![img](./images/east1.png)
 
 ## Approximation of an Elliptical Crack
 
