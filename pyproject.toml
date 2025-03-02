@@ -1,0 +1,11 @@
+[build-system]
+requires = ["maturin>=0.14,<1.0"]
+build-backend = "maturin"
+
+[project]
+name = "grmot"
+version = "0.9.0"
+description = "GRMOT -- Strong Ground Motion Library"
+authors = [{ name = "Costas Smaragdakis", email = "kesmarag@aegean.gr" }]
+license = { text = "GPL-v3" }
+dependencies = ["pyproj","numpy","scipy"] 

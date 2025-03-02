@@ -8,13 +8,10 @@ edition = "2018"
 num="0.4.0"
 rayon="1.5.1"
 ndarray = {version = "0.15.0", features = ["rayon"]}
-pyo3 = { version = "0.15.1", features = ["extension-module"] }
+pyo3 = { version = "0.17.1", features = ["extension-module"] }
 rustfft="6.0.1"
 nalgebra = "0.30.0"
 # mimalloc = { version = "*", default-features = false }
-
-[package.metadata.maturin]
-requires-dist = ["pyproj","numpy","scipy"]
 
 [lib]
 name = "grmot"
