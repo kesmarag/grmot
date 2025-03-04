@@ -100,8 +100,6 @@ sources = [((3, 10, 0, 0, 2, 270 * np.pi / 180), [(0, 1.0)])]
 
 angles = (90.0 * np.pi / 180.0, 0.0 * np.pi / 180.0, 180.0 * np.pi / 180.0)
 fpars = (1 / 10, 5)
-N = 1 / fpars[0] * (4 * fpars[1])
-print(N)
 
 medium = ((2.4, 2.5, 1.4, 0.5), (2.4, 2.5, 1.4, 0.5), (2.8, 5.0, 2.8, 0))
 
@@ -114,7 +112,7 @@ receivers = [(x_receiver, y_receiver)]
 
 north, east, vertical, _, _, _, _, _, _ = fault.simulate(sources, receivers, 8192)
 
-t = np.linspace(0, 1 / fpars[0] * 4, 8192)
+t = np.linspace(0, 1 / fpars[0], 8192)
 
 # Vertical Displacement Plot
 plt.figure(figsize=(10, 3))
